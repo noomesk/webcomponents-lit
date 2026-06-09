@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 // Definición de un componente personalizado de Lit
-@customElement('holas')
+@customElement('holas-element')
 class SimpleGreeter extends LitElement {
 
   static styles = css`
@@ -11,7 +11,8 @@ class SimpleGreeter extends LitElement {
     }
   `;
 
-  @property() accessor name: string; 
+  @property({ type: String })
+  name = '';
 
   //Lit element template
   render() {

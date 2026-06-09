@@ -1,21 +1,27 @@
-@customElements("Elemento de Lit")
+import { LitElement, html, css } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+
+// Definición de un componente personalizado de Lit
+@customElement('holas')
 class SimpleGreeter extends LitElement {
 
-    static styles = css '
-    h1 { color: blue; }
-    '; 
-    
-    @property() name: string; 
-
-//
-    render(){
-        return html '
-        <h1>Helllo ${this.name}</h1>
-        <button @click=${this.onClick}>Say more... }<button/>
-        ';
+  static styles = css`
+    h1 {
+      color: blue;
     }
-    
-    _onclick(e: Event){
-    consoloe.log("Hi again", this.name); 
-    }  
+  `;
+
+  @property() accessor name: string; 
+
+  //Lit element template
+  render() {
+    return html`
+      <h1>Hello ${this.name}</h1>
+      <button @click=${this.onClick}>Say more...</button>
+    `;
+  }
+
+  onClick(e) {
+    console.log('Hi again', this.name);
+  }
 }
